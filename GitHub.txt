@@ -1,0 +1,284 @@
+Install GIT & make sure it is added into PATH.
+Section 0 -Use GIT as local VCS. Steps to follow:
+1.	Create a directory ‘project_dir’ & cd to ‘project_dir’. 
+         Mkdir project dir
+         Cd project dir
+
+2.	Initialize git version database. (git init)
+     Git init
+     Initialized empty Git repository inC:/Users/User/project_dir/.git/
+3.	Create a new file index.html.
+    Git html.txt
+    We create index.html file while in notepad
+4.	Check the git status. You should find index.html as untracked file.
+      Yes, while we check git status we got like this,
+     On branch master 
+     No commits yet
+     Untracked files
+( use :git add <file>…” “ to include in what will be committed)
+    Index.html
+    Nothing added to commit but untracked files present (use “git add” to track)
+
+5.	Stage the index.html file.
+     Git add index.html or you can add directory in git repository file
+
+6.	Commit index.html
+     Git  commit   -m “to committed the file”
+
+7.	Make few changes in index.html & create a new file info.txt file.
+    By using  commit command few changes made
+    1.file changed,0 insertions(+),0 deletion(-)
+
+8.	Check git status. You should find index.html & info.txt as untracked files.
+     On branch master
+    Nothing to commit ,working tree clean
+
+
+9.	Configure GIT to ignore all txt files.
+    Git config  --global user.username(github username)
+
+
+10.	Again check the git status. You should find only index.html as untracked file.
+
+     On branch master
+    Nothing to commit.working tree clean
+
+11.	State & commit index.html
+
+    Git add index.html
+    Git commit –m “to commit the file”
+     
+
+12.	Log all your comments so far.
+
+     Git log –oneline
+     Author:our username with mail
+     Date:current date
+     To commit the file
+
+13.	Make some changes in index.html.
+   Git commit –m “to commit the file “
+
+14.	Revert the change made in the previous step using git command.
+    Git revert HEAD
+     Revert “to commit the file”
+      This reverts commit
+
+15.	Again change index.html.
+    Git commit command
+
+16.	Stage index.html
+     Git status and git add command
+     Git add.
+
+
+17.	Revert back the last stage.
+      Git log-one line
+     Git revert—abort or using reset command
+      Git revert “id”     //command id
+
+18.	Rename ‘add’ command to ‘my-add’.
+     Git mv add my-add
+     Git config   --global  alias .my-add  add
+
+19.	Using my_add command Stage index.html again & commit the changes.
+    Git add .
+    Git commit –m “changes by adding”
+   Git commit
+
+20.	Revert the last commit.
+    Git commit—amend –m “correct message”
+
+    GIT Branching
+
+Objective: Commit HTML, CSS & JavaScript assignments into GIT. 
+
+SECTION-1 (HTML assignments) - Steps to follow:
+
+21.	First take a backup of your assignments & projects. This is required because due to incorrect GIT operation you may lose your files.
+
+22.	Create an empty directory ‘Assignments’ & cd to ‘Assignments’.
+Assignments
+Cd Assignments
+Git init
+
+23.	Create a file README.txt inside ‘Assignments’ & write few lines about the contents of ‘Assignments’ folder.
+    Touch README.txt
+
+24.	Commit README.txt file.
+     Git add README.txt
+     Git commit –m “adding readme file”
+      Git commit
+
+25.	Now create a new branch ‘html-assignments’.
+   Git branch html assignments
+
+26.	Switch to ‘html-assignments’ branch.
+   Git checkout  html-assignments
+
+27.	Copy all HTML assignments inside ‘Assignments’ folder.
+       Create html files
+    Cp*html Assignments
+
+28.	Commit HTML assignments into ‘html-assignments’ branch.
+      Git add .
+      Git commit –m  “ changes the html files”
+      Git commit
+29.	Make minor changes into few files belonging to ‘html-assignments’ branch.
+     Git add. command
+
+30.	Commit those changed files.
+      Git.commit –m “I changes”
+      Git commit
+ 
+31.	Switch to master branch.
+    Git checkout master
+
+32.	Make minor changes into README.txt file & commit those changes into master.
+     Git add .
+     Git commit –m “changes in readme file”
+     Git commit
+
+33.	Again switch to ‘html-assignments’ branch.
+     Git checkout html assignments
+
+34.	Make minor changes into few files belonging to ‘html-assignments’ branch.
+
+
+35.	Commit those changes.
+     Git commit –m “I changes”
+    Git commit
+
+36.	Switch to master.
+     Git checkout master
+37.	Merge ‘html-assignments’ branch into master. Confirm all html assignments are shown in master.
+    Git merge html assignments
+
+38.	Finally delete the ‘html-assignments’ branch.
+    Git branch –d html -assignments
+
+SECTION-2 - (CSS assignments) Steps to follow:
+1.	Create a new branch ‘css-assignments’.
+     Git branch CSS-Assignments
+
+2.	Switch to ‘css-assignments’ branch.
+     Git checkout CSS-Assignments
+
+3.	Copy all CSS assignments inside ‘Assignments’ folder.
+     Create css files
+     Cp*css Assignments
+
+4.	Commit CSS assignments into ‘css-assignments’ branch.
+     Git add .
+    Git commit –m ‘changes in css files’
+
+5.	Make minor changes into README.txt file on line 1 belonging to ‘css-assignments’ branch
+6.	Commit those changed files.
+     Git add.
+     Git commit –m “changes in readme file”
+     Git commit
+
+7.	Switch to master branch.
+    Git checkout master
+
+8.	Make minor changes into README.txt file on line 3 & commit those changes into master
+9.	Again switch to ‘css-assignments’ branch.
+
+Git checkout css-assignments
+10.	Make minor changes into few files belonging to ‘css-assignments’ branch
+11.	Commit those changes.
+     Git add.
+    Git commit –m “changes in readme”
+    Git commit
+
+12.	Switch to master.
+     Get checkout master
+13.	Merge ‘css-assignments’ branch into master. Confirm all css assignments are shown in master.
+     Git merger css-assignments
+
+14.	Finally delete the ‘css-assignments’ branch.
+     Git branch –d html-assignments
+
+SECTION-3 - (JavaScript assignments) Steps to follow:
+1.	Create a new branch ‘js-assignments’.
+    Git branch js-assignments
+2.	Switch to ‘js-assignments’ branch.
+     Git checkout js-assignments
+3.	Copy all JavaScript assignments inside ‘Assignments’ folder.
+     Create js files
+      Cp*js Assignments
+4.	Commit JavaScript assignments into ‘js-assignments’ branch.
+      Git add.
+      Git commit –m “changes in js files”
+      Git commit
+
+5.	Make minor changes into README.txt file on line 1 belonging to ‘js-assignments’ branch.
+6.	Commit those changed files.
+     Git add.
+     Git  commit –m “changes in js files”
+     Git commit
+7.	Switch to master branch.
+     Git checkout master
+8.	Make minor changes into README.txt file on line 1 & commit those changes into master
+9.	Again switch to ‘js-assignments’ branch.
+    Git checkout js-assignments
+10.	Make minor changes into few files belonging to ‘js-assignments’ branch.
+11.	Commit those changes.
+    Git  add.
+    Git commit –m “changes in js files”
+    Git commit
+12.	Switch to master.
+    Git checkout master
+
+13.	Merge ‘js-assignments’ branch into master. Confirm all JavaScript assignments are shown in master.
+   Git merger js-assignments
+14.	Finally delete the ‘js-assignments’ branch.
+    Git branch –d  js assignments
+
+
+   GIT Remoting
+
+Objective: Pushing source code into GITHUB & collaborate team members. 
+SECTION-3 (Pushing assignments to remote repository) - Steps to follow:
+ 
+ 39.	Create a github account if you do not have already.
+         search github.com and register 
+         To create an account we need to give our
+         email
+         username 
+         password
+
+40.	Login on into github account.
+            once the account created login as by giving 
+            username and password
+
+41.	Create new public repository ‘freshersbatch-oct16’.
+        you do not have any repositories associated with GitHub Desktop, you will see a "Let's get started!" view, where you can choose to create and clone a tutorial                   repository,       clone an existing repository from the Internet, create a new repository, or add an existing repository from your hard drive. 
+        we have a option in account to create repository
+
+42.	Commit & push any sample file to this repository under ‘Assignments’ directory
+
+                                  mkdir Assignments
+                                  git init
+                                  git add <filename>
+                                  git commit -m "text message"
+                                  git config -global user.username <username>
+                                  git remote add origin <repository url>
+                                  git push -u origin master
+
+
+SECTION-4 (Pushing source code to remote repository using Eclipse GIT plugin) - Steps to follow:
+1.	One developer from project team will create eclipse projects ‘SampleProj’ & add sample source code files. Then commit all files through eclipse GIT plugin.
+          open eclipse IDE then shift ti git repository
+          select add on existing local repository
+          browse the repository folder and add to it
+          select to clone a repository and enter our github url.and finish
+        
+2.	Collaborate other team members with your github account so that they can also modify the committed files. 
+3.	Other developers from same team will checkout all files from remote repository. This might get conflicts since certain files fail to merge. In such case, merge it manually.
+4.	Commit & push the ‘SampleProj’ project.
+         Right click on project and select commit
+         select commit
+         we can git staging view then select commit
+         then right click on the project and select team
+         in that team menu select push branch master
