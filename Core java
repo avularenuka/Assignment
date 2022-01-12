@@ -4,7 +4,7 @@
 
  - This is the same as supplied value hence it is an Armstrong number.
 
-```java
+java
 //file name - Armstrong.java
 
 import java.util.Scanner;
@@ -49,19 +49,17 @@ public class Armstrong {
 		}
 	}
 }
-```
 
 Output:
 
-```
 Enter the number: 
 153
 153 is an ArmStrong number.
-```
+
 
 2. Find out all the Armstrong numbers falling in the range of 100-999
 
-```java
+java
 //file name - Armstrong_range.java
 
 import java.util.Scanner;
@@ -102,20 +100,20 @@ public class Armstrong_range {
 		}
 	}
 }
-```
+
 
 Output:
 
-```
+
 153 is an ArmStrong number.
 370 is an ArmStrong number.
 371 is an ArmStrong number.
 407 is an ArmStrong number.
-```
+
 
 3. Find out the simple as well as the compound interest of supplied
 
-```java
+java
 //file name - SC_Intrest.java
 
 import java.util.Scanner;
@@ -149,11 +147,10 @@ public class SC_Intrest {
 	}
 }
 
-```
 
 Output:
 
-```
+
 Enter the amount : 
 10000
 Enter the rate : 
@@ -162,7 +159,7 @@ Enter no. of years :
 12
 Simple Interest : 8400.0
 compound Interest : 12521.915889608248
-```
+
 
 4. Supply marks of three subject and declare the result, result declaration is based on below conditions:
 
@@ -170,7 +167,7 @@ compound Interest : 12521.915889608248
  - Condition 2: Any two subjects marks are greater than 60 is Promoted
  - Condition 3: Any one subject mark is greater than 60 or all subjects marks less than 60 is failed
 
-```java
+java
 //file name - Condition_Class.java
 
 import java.util.Scanner;
@@ -208,19 +205,19 @@ public class Condition_Class {
 		}
 	}
 }
-```
+
 
 Output:
 
-```
+
 Enter marks in subject 1: 
-76
+90
 Enter marks in subject 2: 
-11
+70
 Enter marks in subject 3: 
-13
+23
 Failed
-```
+
 
 5. Calculate the income tax on the basis of following table.
 
@@ -235,7 +232,7 @@ Failed
  
  - Accept CTC from user and display tax amount
  
- ```java
+ java
  //file name - Income_Tax.java
  
 import java.util.Scanner;
@@ -277,19 +274,18 @@ public class Income_Tax {
 		}	
 	}
 }
- ```
+ 
  
  Output:
  
- ```
+
 Enter income : 
 400000
 Income tax payable is : 80000.0
- ```
+ 
 
 6. Consider a CUI based application, where you are asking a user to enter his Login name and password, after entering the valid user-id and password it will print the message "Welcome" along with user name. As per the validation is concerned, the program should keep a track of login attempts. After three attempts a message should be flashed saying "Contact Admin" and the program should terminate.
-
-```java
+java
 //file name - Login_User.java
 
 import java.util.Scanner;
@@ -313,7 +309,7 @@ public class Login_User {
 			password = scanner.nextLine();
 			
 			//validation
-			if(name.equals("Subham") && password.equals("satpathy"))
+			if(name.equals("Renuka") && password.equals("Renu"))
 			{
 				//login success tracker
 				track = 1;
@@ -334,22 +330,21 @@ public class Login_User {
 		}
 	}
 }
-```
+
 
 Output:
 
-```
+
 Enter the login name : 
-Subham
+Renuka
 Enter password : 
-sa
+Renu
 Try Again. Remaining attempts 2
 Enter the login name : 
-Subham
+Renuka
 Enter password : 
-satpathy
-Welcome Subham
-```
+Renu
+Welcome Renuka
 
 7. There is an Array which is of the size 15, which may or may not be sorted. You should write a program to accept a number and search if it in contained in the array
 
@@ -390,20 +385,18 @@ public class Array_Search {
 		}
 	}
 }
-```
 
 Output:
 
-```
+
 [5, 12, 14, 6, 78, 19, 1, 23, 26, 35, 37, 7, 52, 86, 47]
 Enter a number to search in array : 
 19
 19 is found in the array at 5th index.
-```
 
 8. Using the above table write method apply sorting using Bubble Sort
 
-```java
+java
 //file name - Bubble_Sort.java
 
 import java.util.Arrays;
@@ -435,7 +428,6 @@ public class Bubble_Sort {
 		System.out.println(Arrays.toString(arr));
 	}
 }
-```
 
 Output:
 
@@ -447,7 +439,7 @@ Sorted Array :
 
 9. Accept the marks of three students for the subject say A, B, C. Find the total scored and the average in all the subjects. Also Find the Total and Average scored by students in each respective Subject.
 
-```java
+java
 //file name - Avg_Marks.java
 
 import java.util.Scanner;
@@ -506,11 +498,11 @@ public class Avg_Marks {
 		}
 	}
 }
-```
+
 
 Output:
 
-```
+
 Enter the marks 
 89
 87
@@ -530,4 +522,3 @@ Average marks for student 1 of each subject is: 81.0
 
 Total marks for student 2 of each subject is: 230.0
 Average marks for student 2 of each subject is: 76.66666666666667
-```
