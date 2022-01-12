@@ -114,12 +114,12 @@ Output:
 3. Find out the simple as well as the compound interest of supplied
 
 java
-//file name - SC_Intrest.java
+//file name - SCIntrest.java
 
 import java.util.Scanner;
 import java.lang.Math;
 
-public class SC_Intrest {
+public class SCIntrest {
 	
 	public static void main(String[] args) {
 		
@@ -168,11 +168,11 @@ compound Interest : 12521.915889608248
  - Condition 3: Any one subject mark is greater than 60 or all subjects marks less than 60 is failed
 
 java
-//file name - Condition_Class.java
+//file name - ConditionClass.java
 
 import java.util.Scanner;
 
-public class Condition_Class {
+public class ConditionClass {
 
 	public static void main(String[] args) {
 		
@@ -233,11 +233,11 @@ Failed
  - Accept CTC from user and display tax amount
  
  java
- //file name - Income_Tax.java
+ //file name - IncomeTax.java
  
 import java.util.Scanner;
 
-public class Income_Tax {
+public class IncomeTax {
 
 	public static void main(String[] args) {
 		
@@ -286,11 +286,11 @@ Income tax payable is : 80000.0
 
 6. Consider a CUI based application, where you are asking a user to enter his Login name and password, after entering the valid user-id and password it will print the message "Welcome" along with user name. As per the validation is concerned, the program should keep a track of login attempts. After three attempts a message should be flashed saying "Contact Admin" and the program should terminate.
 java
-//file name - Login_User.java
+//file name - LoginUser.java
 
 import java.util.Scanner;
 
-public class Login_User {
+public class LoginUser {
 
 	public static void main(String[] args) {
 		
@@ -440,11 +440,11 @@ Sorted Array :
 9. Accept the marks of three students for the subject say A, B, C. Find the total scored and the average in all the subjects. Also Find the Total and Average scored by students in each respective Subject.
 
 java
-//file name - Avg_Marks.java
+//file name - AvgMarks.java
 
 import java.util.Scanner;
 
-public class Avg_Marks {
+public class AvgMarks {
 
 	public static void main(String[] args) {
 		
