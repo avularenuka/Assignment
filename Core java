@@ -505,20 +505,25 @@ Output:
 
 Enter the marks 
 89
-87
-67
 98
-71
-61
-56
-99
 78
-Total marks in all subjects is: 706.0
-Average marks in all subjects is: 78.44444444444444
+76
+56
+78
+90
+89
+78
+Total marks in all subjects is: 732.0
+Average marks in all subjects is: 81.33333333333333
 
-Total marks for student 1 of each subject is: 243.0
-Average marks for student 1 of each subject is: 81.0
+Total marks for student 1 of each subject is: 265.0
+Average marks for student 1 of each subject is: 88.33333333333333
 
 
-Total marks for student 2 of each subject is: 230.0
-Average marks for student 2 of each subject is: 76.66666666666667
+Total marks for student 2 of each subject is: 210.0
+Average marks for student 2 of each subject is: 70.0
+
+
+Total marks for student 3 of each subject is: 257.0
+Average marks for student 3 of each subject is: 85.66666666666667
+
