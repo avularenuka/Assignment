@@ -1,0 +1,157 @@
+ASSIGNMENT 2
+OOPS CONCEPT
+1.write a singletone class .confirm that singleton class cannot inherited
+
+
+2.write a program that describes the hierarchy of an organization here we need to write 3 classes employee, manager &labour where manager &labour are the sub classes of the employee manager has incentives & labour has over time add the functionality to calculate total salary of all the employees use polymorphism i.e method overriding.
+class Employees{
+	public static int base =10000;
+	int salary()
+	{
+		return base;
+	}
+
+}
+class Manager extends Employees{
+	int salary() {
+		return base+20000;
+	}
+}
+class Labour extends Employees{
+	int salary()
+	{
+		return base+10000;
+	}
+}
+public class  Employee{
+	static void printSalary(Employees e) {
+		System.out.println(e.salary());
+	}
+	public static void main(String args[]) {
+		Employees e1=new Manager();
+		System.out.println("manager salary");
+		printSalary(e1);
+		Employees e2=new Employees();
+		System.out.println("labour salary");
+		printSalary(e2);
+	}
+}
+
+Output:
+manager salary
+30000
+labour salary
+10000
+
+3.
+
+4.Test any following principles of an abstract class
+4 A Q:If any class has anyof its method abstract then you must declare entire class abstract package oops;
+
+Class Demo{
+Void call()
+{
+System.out println(“calling”);
+}
+Aabstract void music()
+{
+System.out.println(“playing  music”);
+}
+ Public void main (String args[])
+{
+Demo d1=new Demo();
+D1.call();
+}
+}
+Error:Multiple markers at the line
+The abstract method playmusic in type Demo can only be defined by an abstract class
+
+4B Q:Abstract Class cannot be initiated
+Abstract class Demo{
+Void  phone()
+{
+System.out.println(“calling”);
+}
+Public static void main(String args[])
+{
+Demo d1=new Demo();
+D1.phone();
+}
+
+}
+Output:Exceptionin thread “main” java.lang .Error unresolved compilation problem:
+Cannot instantiate the type Demo
+
+At oops.Demo.main.java:11)
+
+4 C Q:When we extend an abstract class ,we must either override all the abstract methods in subclass or declare subclass as abstract.
+Class Demo
+{
+Public static void main{String args[])
+           {
+               Demo2 obj-new Demo2();
+               Obj.call();
+               Obj.playmusic();
+            }
+}
+Abstract class Demo1
+{
+Abstract void call();
+Abstract void playmusic();
+}
+Class Demo2 extends Demo1
+{
+Void call()
+{
+System.out.println(“phone rings”);
+}
+Void playmusic()
+{
+System.out.println(“playing music”);
+}
+}
+4 D Q:Abstract class cannot be private
+When I made the above abstract class private the output: Exception in thread “main” java.lang. Error :unresolved compilation problems:
+Illegal modifier for the class Demo1;only public, abstract& final are permitted
+4 E Q: Abstract class cannot be private
+Output: Exception in thread “main” java .lang.Error: unresolved compilation problems:
+The class Demo1 can be either abstract or final,not both 
+The type Demo2 cannot subclass the Demo1
+4 F Q: you can declare  class abstract without having any abstract method 
+Answer : Yes ,we can have abstract class without abstract methods as both are independent concepts Declaring  aclass abstract means that it can not be instantiated on its own.
+
+
+5.
+
+abstract class Shape {
+	abstract void draw();
+
+}
+class Line extends Shape{
+	void draw() {
+	System.out.println("drawing line");
+	
+   }	
+}
+class Rectangle extends Shape{
+	void draw() {
+		System.out.println("drawing rectangle");
+	}
+}
+class Circle extends Shape{
+	void draw() {
+		System.out.println("drawing circle");
+	}
+}
+public class Shape{
+	public static void main(String args[])
+	{
+		Shapes s1=new Line();
+		s1.draw();
+		Rectangle s2=new Rectangle();
+		s2=draw();
+		Circle s3=new Circle();
+		s3.draw();
+	}
+}
+
