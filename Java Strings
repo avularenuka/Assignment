@@ -1,107 +1,214 @@
-AppendStringBuffer
-public class AppendStringBuffer {
+1.Write an application to determine the length of the string =”Hello world”.
+package assign13;
+import java.util.Scanner;
+public class len {
+	public static void main(String[] args)
+	{
+		String str;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter the string:");
+		str=sc.nextLine();
+		System.out.println("length of the string:"+ str.length());
+	}
+}
+Output:
+enter the string:
+Hello world
+length of the string:11
+2.Write an application to join the two string “Hello” and “How are you?”
+package assign23;
+public class combine {
+public static void main(String[] args)
+{
+	String s1="Hello ",s2="How are you";
+	System.out.println("Print:"+ s1 +s2);	
+}
+}
+Output:
+Print:Hello How are you
+3. 3. Given a string “java string pool refers to collection of string which are store in heap memory” perform the following operations:
+a. print the string to console in lower case
+package assign33;
+import java.util.Scanner;
+public class pool {
+	public static void main(String[] args)
+	{
+		String s1,s2;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Uppercase letter:");
+		s1=sc.nextLine();
+		s2 = s1.toLowerCase();
+		System.out.println("lowecase:" +s2);	
+	}
+}
+Uppercase letter:
+RENUKA
+lowecase:renuka
+b. Print the string to console in upper case
+package assign33;
+import java.util.Scanner;
+public class pool {
+	public static void main(String[] args)
+	{
+		String s1,s2;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Lowercase letter:");
+		s1=sc.nextLine();
+		s2 = s1.toUpperCase();
+		System.out.println("uppercase:" +s2);	
+	}
+}
+Output:
+Lowercase letter:
+hello world
+uppercase:HELLO WORLD
+c.  Replace all ‘a’ character in a string with ‘$’ sign
+package assign33;
+import java.util.Scanner;
+public class pool {
+	public static void main(String[] args)
+	{
+		String s1,s2;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the string:");
+		s1=sc.nextLine();
+		s2 = s1.replace("a","$");
+		System.out.println("string:" +s2);	
+	}
+}
+Output:
+Enter the string:
+an apple
+string:$n $pple
+d. Check if the original string contains the word “collection”
+package assign33;
+import java.util.Scanner;
+public class pool {
+	public static void main(String[] args)
+	{
+		String s1,s3;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the string:");
+		s1=sc.nextLine();
+		System.out.println("Enter the string to be checked:");
+		s3=sc.nextLine();
+		boolean s2 = s1.contains(s1);
+		System.out.println("string:" +s2);	
+	}
+}
+Output:
+Enter the string:
+Java uses oops concept
+Enter the string to be checked:
+oops
+string:true
+Enter the string:
+"java string pool refer to collection of strings which are in heap memory"
+Enter the string to be checked:
+collection
+string:true
+f. use another method to check strings are equal.
+package assign33;
+import java.util.Scanner;
+public class pool {
+	public static void main(String[] args)
+	{
+		String s1,s3;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the string:");
+		s1=sc.nextLine();
+		System.out.println("Enter the string to be checked:");
+		s3=sc.nextLine();
+		boolean s2=s1.equals(s1);
+		System.out.println("print:" + s2);
+		
+	}
+}
+Output:
+Enter the string:
+"java string pool refer to collection of strings which are in heap memory"
+Enter the string to be checked:
+collection
+print:true
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		StringBuffer sb=new StringBuffer("StringBuffer");
-		  sb.append(" is a peer class of String");
-		   sb.append(" that provides much of"); 
-           sb.append(" the functionality of the string");
-           System.out.println(sb);
+STRINGBUFFER
+1.Write an application to append the following strings “StringBuffer”, “is a peer of a String”, “that provides much of”, “the functionalities of string” using StringBuffer.
+package assign43;
+public class buff {
+	public static void main(String[] args)
+	{
+		StringBuffer buffer=new StringBuffer("HI");
+		buffer.append(" " +"Hello");
+		System.out.println(buffer);
+	}
+}
+Output:
+HI Hello
+2. Insert the following string “insert text” into the string “it is used to _at the specified index position” at the location denoted by _sign using StringBuffer.
+package assign43;
+public class buff {
+	public static void main(String[] args)
+	{
+		StringBuffer buffer=new StringBuffer("it is used to at the specified index position");
+		buffer.insert(14 ,"insert text ");
+		System.out.println(buffer);
+	}
+}
+Output:
+it is used to insert text at the specified index position
+Reverse the following string “This method is used to return the reverse object on which it was called” using StringBuffer class
+package assign43;
+public class buff {
+	public static void main(String[] args)
+	{
+		StringBuffer buffer=new StringBuffer("This method is used to return the reverse object on which it was called");
+		buffer.reverse();
+		System.out.println(buffer);
+	}
+}
+Output:
+dellac saw ti hcihw no tcejbo esrever eht nruter ot desu si dohtem sihT
+Provide solution for “Assignments of stringBuffer class” using StringBuilder”
+
+1.	Write an application to append the following strings “StringBuilder”, “is a peer of a String”, “that provides much of”, “the functionalities of string” using StringBuilder.
+package assign43;
+public class buff {
+	public static void main(String[] args)
+	{
+		StringBuilder buffer=new StringBuilder("StringBuilder, is a peer of a String");
+		buffer.append(" "+"that provides much of");
+		buffer.append(" "+" the functionalities of string");
+		System.out.println(buffer);
 	}
 
 }
-
-2 AppendStringBulider
-
-public class AppendStringBuilder {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		StringBuilder sb=new StringBuilder("StringBuilder");
-		  sb.append(" is a peer class of String");
-		   sb.append(" that provides much of"); 
-         sb.append(" the functionality of the string");
-         System.out.println(sb);
-
+Output:
+StringBuilder, is a peer of a String that provides much of  the functionalities of string
+2.	Insert the following string “insert text” into the string “it is used to _at the specified index position” at the location denoted by _sign using StringBuilder.
+package assign43;
+public class buff {
+	public static void main(String[] args)
+	{
+		StringBuilder buffer=new StringBuilder("it is used to at the specified index position");
+		buffer.insert(14,"index text ");
+		System.out.println(buffer);
 	}
 
 }
-
-3 CanCate
-public class ConcatenateString {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		String str1="Hello";
-		String str2="How are you?";
-		//System.out.println(str1.concat( str2));
-         System.out.println(str1+" "+str2);
+Output
+it is used to index text at the specified index position
+3.	Reverse the following string “This method is used to return the reverse object on which it was called” using StringBuilder class.
+package assign43;
+public class buff {
+	public static void main(String[] args)
+	{
+		StringBuilder buffer=new StringBuilder("This method is used to return the reverse object on which it was called");
+		buffer.reverse();
+		System.out.println(buffer);
 	}
 
 }
-4 Replacing
-public class ReplaceString {
+Output:
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		StringBuffer sb=new StringBuffer("It is used to at the specified index position");
-		sb.insert(14, "insert text ");
-		System.out.println(sb);
+dellac saw ti hcihw no tcejbo esrever eht nruter ot desu si dohtem sihT
 
-	}
-
-}
-5 Reversing
-public class ReverseString {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-       StringBuffer sb= new StringBuffer("This method returns the reversed object on which it was called");
-       sb.reverse();
-       System.out.println(sb);
-	}
-
-}
-
-6 Reverse String Bulider
-public class ReverseStringBuilder {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		  StringBuilder sb= new StringBuilder("This method returns the reversed object on which it was called");
-	       sb.reverse();
-	       System.out.println(sb);
-
-	}
-
-}
-7 Strin Length
-public class StringLength {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		String str1="Hello";
-		String str2="World";
-		System.out.println(str1.length());
-		System.out.println(str2.length());
-
-	}
-
-}
-8 StringOperation
-public class StringOperation {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-         String str="Java String pool refers to collection of String which are stored in heap memory";
-         System.out.println(str);
-         System.out.println(str.toLowerCase());
-         System.out.println(str.toUpperCase());
-         System.out.println(str.replace('a','$'));
-         System.out.println(str.contains("collection"));
-         System.out.println(str.matches("(.*)Java String pool refers to collection of String which are stored in heap memory"));
-         System.out.println(str.equals("Java String pool refers to collection of String which are stored in heap memory"));
-	}
-
-}
