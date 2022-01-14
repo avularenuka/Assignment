@@ -1,6 +1,60 @@
 ASSIGNMENT 2
 OOPS CONCEPT
-1.write a singletone class .confirm that singleton class cannot inherited
+
+1. Write a Singleton class. Confirm that singleton class cannot be inherited.
+Singleton.java
+package oops;
+
+public class Singleton {
+	    
+	    private static Singleton single_instance = null;
+	    
+	    public String s;
+	    
+	    private Singleton()
+	    {
+	        s = "Hello I am a string part of Singleton class";
+	    }
+	 
+	    
+	    public static Singleton getInstance()
+	    {
+	        if (single_instance == null)
+	            single_instance = new Singleton();
+	 
+	        return single_instance;
+	    }
+	}
+Main.java
+package oops;
+
+public class main {
+	 public static void main(String args[])
+	    {
+	        
+	        Singleton x = Singleton.getInstance();    
+	        Singleton y = Singleton.getInstance();
+	        Singleton z = Singleton.getInstance();	      
+	        System.out.println("Hashcode of x is "  + x.hashCode());	                         
+	        System.out.println("Hashcode of y is "  + y.hashCode());	                         
+	        System.out.println("Hashcode of z is " + z.hashCode());                        
+	        if (x == y && y == z)
+	        {
+	            System.out.println("Three objects point to the same memory location on the heap i.e, to the same object");
+	                
+	        }
+	 
+	        else {
+	            
+	        System.out.println("Three objects DO NOT point to the same memory 
+location on the heap");                
+	
+	        }
+	    }
+	}
+
+
+
 
 
 2.write a program that describes the hierarchy of an organization here we need to write 3 classes employee, manager &labour where manager &labour are the sub classes of the employee manager has incentives & labour has over time add the functionality to calculate total salary of all the employees use polymorphism i.e method overriding.
@@ -43,7 +97,58 @@ manager salary
 labour salary
 10000
 
-3.
+3.write program to consider saving and current bank holder.
+package polymorphism;
+public class poly {
+	public static void main(String[] args)
+	{
+		bank b ;
+	
+		b=new saving();
+		b.display();
+		b=new current();
+		b.display();
+	}
+}
+package polymorphism;
+
+class bank {
+	void display()
+	{
+		System.out.println("account");
+	
+	}
+
+}
+package polymorphism;
+
+public class saving extends bank{
+	void display()
+	{
+		int number=10000;
+		System.out.println("saving account holder");
+		System.out.println("Fixed deposit:"+number);
+	}
+
+}
+package polymorphism;
+
+public class current extends bank {
+	void display()
+	{
+		int number=5000;
+		System.out.println("Current account holder");
+		System.out.println("credit cash:"+number);
+	}
+
+
+}
+Output:
+saving account holder
+Fixed deposit:10000
+Current account holder
+credit cash:5000
+
 
 4.Test any following principles of an abstract class
 4 A Q:If any class has anyof its method abstract then you must declare entire class abstract package oops;
