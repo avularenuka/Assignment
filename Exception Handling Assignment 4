@@ -9,13 +9,13 @@ public class ArithExcep {
 		// TODO Auto-generated method stub
 		
 		try {
-			int a,b;
+			int x,y;
 			Scanner sc =  new Scanner(System.in);
 			System.out.println("Enter the first number ");
-			a = sc.nextInt();
+			x = sc.nextInt();
 			System.out.println("Enter the second number ");
-			b = sc.nextInt();
-			System.out.println(a/b);
+			y = sc.nextInt();
+			System.out.println(x/y);
 		}
 		catch(ArithmeticException e)
 		{
@@ -40,13 +40,13 @@ public class ArithExcep {
 		// TODO Auto-generated method stub
 		
 		try {
-			int a,b;
+			int x.y;
 			Scanner sc =  new Scanner(System.in);
 			System.out.println("Enter the first number ");
-			a = sc.nextInt();
+			x = sc.nextInt();
 			System.out.println("Enter the second number ");
-			b = sc.nextInt();
-			System.out.println(a/b);
+			y = sc.nextInt();
+			System.out.println(x/y);
 		}
 		catch(ArithmeticException e)
 		{
