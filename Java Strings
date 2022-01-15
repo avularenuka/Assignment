@@ -15,6 +15,7 @@ Output:
 enter the string:
 Hello world
 length of the string:11
+
 2.Write an application to join the two string “Hello” and “How are you?”
 package assign23;
 public class combine {
@@ -26,6 +27,7 @@ public static void main(String[] args)
 }
 Output:
 Print:Hello How are you
+
 3. 3. Given a string “java string pool refers to collection of string which are store in heap memory” perform the following operations:
 a. print the string to console in lower case
 package assign33;
@@ -44,6 +46,7 @@ public class pool {
 Uppercase letter:
 RENUKA
 lowecase:renuka
+
 b. Print the string to console in upper case
 package assign33;
 import java.util.Scanner;
@@ -62,6 +65,7 @@ Output:
 Lowercase letter:
 hello world
 uppercase:HELLO WORLD
+
 c.  Replace all ‘a’ character in a string with ‘$’ sign
 package assign33;
 import java.util.Scanner;
@@ -80,6 +84,7 @@ Output:
 Enter the string:
 an apple
 string:$n $pple
+
 d. Check if the original string contains the word “collection”
 package assign33;
 import java.util.Scanner;
@@ -107,6 +112,7 @@ Enter the string:
 Enter the string to be checked:
 collection
 string:true
+
 f. use another method to check strings are equal.
 package assign33;
 import java.util.Scanner;
@@ -144,6 +150,7 @@ public class buff {
 }
 Output:
 HI Hello
+
 2. Insert the following string “insert text” into the string “it is used to _at the specified index position” at the location denoted by _sign using StringBuffer.
 package assign43;
 public class buff {
@@ -184,6 +191,7 @@ public class buff {
 }
 Output:
 StringBuilder, is a peer of a String that provides much of  the functionalities of string
+
 2.	Insert the following string “insert text” into the string “it is used to _at the specified index position” at the location denoted by _sign using StringBuilder.
 package assign43;
 public class buff {
@@ -197,6 +205,7 @@ public class buff {
 }
 Output
 it is used to index text at the specified index position
+
 3.	Reverse the following string “This method is used to return the reverse object on which it was called” using StringBuilder class.
 package assign43;
 public class buff {
