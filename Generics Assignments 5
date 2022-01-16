@@ -1,0 +1,109 @@
+1. package emp;
+      public class employee {
+	int id,salary;
+	String name,department;
+	
+	public employee(int id,int salary,String name,String department)
+	{
+		this.id=id;
+		this.salary=salary;
+		this.name=name;
+		this.department=department;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getSalary() {
+		return salary;
+	}
+
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+       public void displayDetails()
+       {
+	System.out.println("id : "+getId()+" salary: "+getSalary()+" name:        
+       "+getName()+" department: "+getDepartment());
+       }
+       } 
+       public class hashset {
+      	public static void main(String[] args)
+	{	
+		Set<employee> set=new HashSet<>();
+		employee emp=new employee(1, 20000 , "Joy", "marketing");
+		set.add(emp);
+             	emp.displayDetails();
+       }}
+	2. import java.util.HashMap;
+
+         public class map {
+         public static void main(String[] args)
+         {
+	   //Map<key,value> map=new HashMap<>();
+	     Map<Integer,Double> map=new HashMap<>();
+			map.put(34, 33.9);
+			map.put(67, 67.7);
+			map.put(96, 56.7);
+			map.put(35, 3.5);
+			map.put(11, 33.9);
+			map.put(25, 5.9);
+			map.put(99, 89.8);
+			map.put(56, 23.5);
+			map.put(84, 98.5);
+			map.put(54, 87.6);
+		
+			
+	        System.out.println(map);
+	     
+         }}
+
+
+
+4. a. import java.util.*;
+
+	public class pair {
+	public static void main(String[] args)
+	{
+		Map<String,String> map=new HashMap<>();
+		
+             map.put("Hi", "8");
+		map.put("hello", "9");
+             System.out.println(map);
+		 
+		        
+	}
+	}	
+
+
+b. 	import java.util.*;
+
+	public class pair1 {
+	public static void main(String[] args)
+	{    
+		Map<String,Date> map=new HashMap<>();
+		map.put("Today is", new java.util.Date());
+		System.out.println(map);
+				
+}}	
