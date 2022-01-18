@@ -1,72 +1,212 @@
-1.
-Package collections;
-import java.util.*;
-import java.util.set;
-import java.util.treeMap;
-class contact{
-int phnum;
-String Name;
-String Email;
-String Gender;
-public contact (int phnum,string name,String email, String gender){
-this.phnum=phnum;
-this.Email=email;
-this.Gender=gender;
+1.	Given a TreeMap<Long, Contact> which has phone numbers for keys and contact objects for values.
+
+Write solutions to
+a.	Fetch all the keys and print them,
+b.	Fetch all the values and print them
+c.	Print all key-values pairs 
+
+Note: 
+a)	Contacts should be stored in descending order of phone number 
+b)	Contact class:
+•	PhoneNumber:<long>
+•	Name:<String>
+•	Email:<String>
+•	Gender:<Enum>
+
+package Tree;
+import java.util.EnumSet;
+//import Contact.gen;
+
+public class Contact {
+	long phn;
+    String name, email;
+   public enum gen {F,M}
+   gen g;
+public Contact(long phn, String name, String email, gen g) {
+	super();
+	this.phn = phn;
+	this.name = name;
+	this.email = email;
+	this.g = g;
 }
-public static toString(){
-return this.phnum +""+this.Name+"" +this.Email+""+this.Gender;
+public long getPhn() {
+	return phn;
 }
+public void setPhn(long phn) {
+	this.phn = phn;
 }
-class Sortbyphnum implements Comparator<contact>{
-public int compare (contact 1, contact b){
-return b. phnum-a.phnum;
+public String getName() {
+	return name;
 }
+public void setName(String name) {
+	this.name = name;
 }
-publicclass TreeMapDemo{
-static void main()
-{
-TreeMap<contact,Integer>treeMap=new TreeMap<contact ,Integer>(new Sortbyphnum())
-treeMap.put(new contact (1234567,"renuka","renuka@gmail.com","female"),4);
-treeMap.put(new contact (1234567,"renuka","mounika@gmail.com","female"),3);
-treeMap.put(new contact (1234567,"renuka","haria@gmail.com","female"),2);
-treeMap.put(new contact (1234567,"renuka","maneesha@gmail.com","female"),1);
-System.out.println("treeMap : "+treeMap + "\n");
-set<contact> set =treeMap.keySet();
-for(contact key :set){
-System.out.println(key);
+public String getEmail() {
+	return email;
 }
-System.out.println("feting all values :"+treeMap.values());
+public void setEmail(String email) {
+	this.email = email;
 }
-public satic void main(String args[])
-{
-System.out.println("treeMap using");
-main();
+public gen getG() {
+	return g;
 }
+public void setG(gen g) {
+	this.g = g;
+}
+	
+    
+	
 }
 
+package Tree;
+import java.util.Set;
+import java.util.Collections;
+import java.util.Map;
+import java.util.TreeMap;
+import Tree.Contact.gen;
 
-2.
-import java.util.*;
-public class Duplicate {
-	public static void main(String [] args) {
-		int arr[] = {2,7,0,5,2,6,1,4};
-		ArrayList<Integer> a = new ArrayList<>();
-		HashSet<Integer> hs = new HashSet<>();
-		for(int i : arr) {
-			if(!hs.contains(i)) {
-				a.add(i);
-				hs.add(i);
+public class PhnNum {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Map<Long,Contact> map = new TreeMap<Long,Contact>();
+		Contact c1 = new Contact((long)326452139, "Rob", "rob@gmail.com",gen.M);
+		Contact c2 = new Contact((long)986312475, "Sam", "sam@gmail.com",gen.M);
+		Contact c3 = new Contact((long)694213857, "Emily", "emily@gmail.com",gen.F);
+		Contact c4 = new Contact((long)123698547, "Emma", "emma@gmail.com",gen.F);
+		Contact c5 = new Contact((long)635478941, "Tom", "tom@gmail.com",gen.M);
+		
+		map.put((long)326452139, c1);
+		map.put((long)986312475, c2);
+		map.put((long)694213857, c3);
+		map.put((long)123698547, c4);
+		map.put((long)635478941, c5);
+		
+		
+		Map<Long,Contact> sortedMapDesc = new TreeMap<>(
+			Collections.reverseOrder());
+			sortedMapDesc.putAll(map);
+			for(Map.Entry<Long, Contact> entry1: sortedMapDesc.entrySet())
+			{
+				Long key = entry1.getKey();
+				Contact c = entry1.getValue();
+				System.out.println(key + " -->Phone Number in descending order");
+				System.out.println(c.name+" "+c.email+" "+c.g +  " -->Other Details");
+				System.out.println(c.phn + " "+ c.name+ " "+ c.email+ " "+ c.g + " -->Full Details");
 				
 			}
-		}
-		for (int i : a) {
-			System.out.print(i + " ");
+			
 		}
 	}
+
+Output:  986312475 -->Phone Number in descending order
+Sam sam@gmail.com M -->Other Details
+986312475 Sam sam@gmail.com M -->Full Details
+694213857 -->Phone Number in descending order
+Emily emily@gmail.com F -->Other Details
+694213857 Emily emily@gmail.com F -->Full Details
+635478941 -->Phone Number in descending order
+Tom tom@gmail.com M -->Other Details
+635478941 Tom tom@gmail.com M -->Full Details
+326452139 -->Phone Number in descending order
+Rob rob@gmail.com M -->Other Details
+326452139 Rob rob@gmail.com M -->Full Details
+123698547 -->Phone Number in descending order
+Emma emma@gmail.com F -->Other Details
+123698547 Emma emma@gmail.com F -->Full Details
+
+2.	Write an application to store unique product objects. In case there is an attempt to add  duplicate product, it should be silently rejected. Hint: Use HashSet or TreeSet
+
+Extra(Optional): Use ArrayList in above solution.(This is optional)
+
+public class Duplicate1 implements Comparable<Duplicate1>{
+	private String product_name;
+	private int product_id;
+	
+	Duplicate1(String product_name, int product_id)
+	{
+		this.product_id = product_id;
+		this.product_name = product_name;
+	}
+	
+	private String getName()
+	{
+		return product_name;
+	}
+	
+	public int getId()
+	{
+		return product_id;
+	}
+	
+	public int compareTo(Duplicate1 f)
+	{
+		if(product_id == f.getId())
+		{
+			return 0;
+		}
+		else if(product_name.compareTo(f.getName()) < 0)
+		{
+			return -1;
+		}
+		else
+		{
+			return -1;
+		}
+	}
+	
+	public String toString()
+	{
+		return product_name + " - " + product_id;
+	}
+	
 }
 
-3
- public class Emp1 {
+import java.util.TreeSet;
+
+public class Duplicate {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		TreeSet<Duplicate1> dup = new TreeSet<>();
+		
+		dup.add(new Duplicate1("iPhone",1));
+		dup.add(new Duplicate1("Samsung",2));
+		dup.add(new Duplicate1("Motorola",3));
+		//adding a duplicate product name
+		dup.add(new Duplicate1("iPhone",4));
+		//adding a duplicate product ID
+		dup.add(new Duplicate1("OnePlus",2));
+		dup.add(new Duplicate1("Redmi",5));
+		
+		for(Duplicate1 f : dup)
+		{
+			System.out.println(f);
+		}
+
+	}
+
+}
+
+Output: Redmi - 5
+iPhone - 4
+Motorola - 3
+Samsung - 2
+iPhone - 1
+
+
+3.	Store atleast 10 Employee Objects in an TreeSet<Employee>. When the application runs the user should be asked to select one of the options upon which you all print the employee details in a sorted manner.
+
+For E.g.,
+
+Run Application:
+a)	ID
+b)	Name
+c)	Department
+d)	Salary
+
+Your choice: b
+<Should print all the employee’s details sorted by name>
+	public class Emp1 {
 	private int id;
 	private String name;
 	private String dept;
@@ -227,3 +367,81 @@ public class Compare {
 	}
 
 }
+
+
+Output: You want to sort in order of 
+
+1.ID
+2.Department
+3.Name
+4.Salary
+
+Enter your option: 
+2
+ Increasing Order with the Name : 
+3,Tom,Analyst,21000.0
+2,Rob,Manager,32000.0
+1,Sam,Trainee,18000.0
+
+You want to sort in order of 
+
+1.ID
+2.Department
+3.Name
+4.Salary
+
+Enter your option: 
+3
+ Increasing Order with the Department : 
+2,Rob,Manager,32000.0
+1,Sam,Trainee,18000.0
+3,Tom,Analyst,21000.0
+
+
+
+4.	Given a LinkedList of Objects representing date of birth’s (use any inbuild java class to represent date), print the date’s along with the message: Your date of Birth is DD-MM-YYYY and it (was or was not) a leap year.
+
+E.g.,
+a)  For the date 23-12-2000 and it was a leap year.
+b) For the date 23-12-2001
+
+Your date of birth 23-12-2001  and it was not a leap year
+
+Note: You need to access the Dates in the reverse order, i.e. start from the last object and move towards the first object.
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Calendar;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class LeapYear {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		LocalDate cal1 = LocalDate.of(2000, 07, 26);
+		LocalDate cal2 = LocalDate.of(2017, 11, 17);
+		LinkedList<LocalDate> callist =  new LinkedList<LocalDate>();
+		callist.add(cal1);
+		callist.add(cal2);
+		for(LocalDate c: callist)
+		{
+			String fDate = c.format(DateTimeFormatter.ofPattern("dd-MM-YYYY"));
+			if(c.isLeapYear())
+			{
+				System.out.println("Your Date of Birth " + fDate + " and it was a leap year");
+			}
+			else
+			{
+				System.out.println("Your Date of Birth " + fDate + " and it was not a leap year");
+			}
+		}
+	}
+
+}
+
+Ouput: Your Date of Birth 26-07-2000 and it was a leap year
+Your Date of Birth 17-11-2017 and it was not a leap year
+     
