@@ -85,6 +85,25 @@
 	 
        Output:
        {96=56.7, 34=33.9, 67=67.7, 35=3.5, 99=89.8, 84=98.5, 54=87.6, 56=23.5, 25=5.9, 11=33.9}
+       
+  3
+  import java.util.Scanner;
+  public class ArrayTricks{
+  public static void main(String args[])
+  {
+  int[] numbers={4,1,8,3,5};
+  int src=0;
+  int dest=1;
+  int temp=numbers[src];
+  numbers[0]=numbers[1];
+  numbers[1]=temp;
+  for(int i=0;i<numbers[i]+"");
+  }
+  }
+  
+  outppput:
+  1 4 8 3 5
+  
 
 
 4. a. import java.util.*;
