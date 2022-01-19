@@ -14,7 +14,7 @@ class first {
 	public void testCase() {}  
 
 }
-[11:09 pm, 18/01/2022] +91 96408 73034: mport java.lang.reflect.Method;
+import java.lang.reflect.Method;
 
 public class test1 {
 
