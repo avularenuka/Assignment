@@ -1,0 +1,93 @@
+
+1.
+package practice;
+
+/*
+FunctionalInterface
+ */
+    interface Arithmetic {
+        int operation(int a, int b);
+    }
+
+    public class FunctionalInterface {
+        public static void main(String[] args) {
+
+            // Addition using Lambda expression
+            Arithmetic addition = (int a, int b) -> (a + b);
+            // Arithmetic addition = (int a, int b) -> {return a + b;};
+
+            System.out.println("Addition = " + addition.operation(5, 6));
+
+            // Subtraction using Lambda expression
+            Arithmetic subtraction = (int a, int b) -> (a - b);
+            // Arithmetic addition = (int a, int b) -> {return a - b;};
+
+            System.out.println("Subtraction = " + subtraction.operation(5, 3));
+
+            // Multiplication using Lambda expression
+            Arithmetic multiplication = (int a, int b) -> (a * b);
+            // Arithmetic addition = (int a, int b) -> {return a * b;};
+
+            System.out.println("Multiplication = " + multiplication.operation(4, 6));
+
+            // Division using Lambda expression
+            Arithmetic division = (int a, int b) -> (a / b);
+            // Arithmetic addition = (int a, int b) -> {return a * b;};
+
+            System.out.println("Division = " + division.operation(12, 6));
+
+        }
+    }
+    
+    output:
+    Addition = 11
+    Subtraction = 2
+    Multiplication = 24
+    Division = 2
+
+    
+  2.
+ package practice;
+interface price {
+    public String price();
+}
+
+public class FunctionalInterface {
+    public static void main(String[] args) {
+
+        Integer i = 200000;
+        price p = () -> {
+            if (i > 10000) {
+                return "Accepted!";
+            } else
+                return "Not Accepted!";
+
+        };
+        System.out.println(p.price());
+    }
+
+
+}
+
+7.
+package practice;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class MapToString {
+    public static void main(String[] cmd_lineParams) {
+        Map<String, String> map = new HashMap<>(5);
+        map.put("name1", "value1");
+        map.put("name2", "value2");
+        map.put("name3", "value3");
+        map.put("name4", "value4");
+        map.put("name5", "value5");
+        String s = map.entrySet().stream().map((entry) ->
+                        "" + entry.getKey() + " \"" + entry.getValue().replaceAll("\"", "\\\\\"") + "\"")
+                .collect(Collectors.joining(" "));
+        System.out.println(s);
+
+    }
+}
