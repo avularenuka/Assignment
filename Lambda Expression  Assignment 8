@@ -199,9 +199,4 @@ public class Threadlist {
         mylambda.run();
 	}
 }
-output:
-A
-B
-C
-D
-E
+
