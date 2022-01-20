@@ -69,6 +69,79 @@ public class FunctionalInterface {
 
 }
 
+3.
+package lambdajava8;
+
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+
+class Product 
+{
+private double price = 0.0;
+
+public void setPrice(double price) 
+  {
+this.price = price;
+  }
+
+public void printPrice() {
+System.out.println("This is Consumer functional interface: "+price);
+  }
+}
+
+public class third
+{
+public static void main(String[] args) 
+  {
+	//consumer functional interface
+    Consumer<Product>updatePrice = p ->p.setPrice(9.7);
+    Product p = new Product();
+updatePrice.accept(p);
+p.printPrice();
+
+//Predicate functional interface
+    Predicate<String>isALongWord = t ->t.length() > 10;
+    String s = "successfully";
+boolean result = isALongWord.test(s);
+System.out.println("This is predicate functional interface: "+s);
+
+//Function functional interface
+    Function<Integer, Double>half = a ->a / 2.0;
+System.out.println("This is Function functional interface: "+half.apply(10));
+
+//Supplier functional interface
+    Supplier<Double>randomValue = () ->Math.random();
+System.out.println("This is supplier functional interface: "+randomValue.get());
+
+  }
+}
+
+5.
+import java.util.List;
+import java.util.function.Consumer;
+
+public class word {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			var word = List.of("Apple", "Ball", "Cat", "Dog", "Egg");
+			word.forEach(new Consumer<String>()
+					{
+public void accept (String s)
+{
+	StringBuilder s1 = new StringBuilder();
+	for (String st : s.split(" "))
+	{
+		s1.append(st.charAt(0));
+	}
+	System.out.println(s1.toString());
+}
+});
+}}
+
+
 7.
 package practice;
 
@@ -90,4 +163,26 @@ public class MapToString {
         System.out.println(s);
 
     }
+}
+
+
+8.
+import java.util.ArrayList;
+import java.util.List;
+
+public class Threadlist {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		List<Integer> num=new ArrayList<Integer>(){{
+            add(11);
+            add(55);
+            add(37);
+            add(95);
+            add(99);
+        }};
+        
+        Thread mylambda = new Thread(()->System.out.println(num));
+        mylambda.run();
+	}
 }
