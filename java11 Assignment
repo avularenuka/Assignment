@@ -1,0 +1,292 @@
+	                                        Assignments on Java 11
+                                          
+1.	Write a program to calculate the simple Interest with minimal code using features of Java 11.
+HINT: Use the concept of functional interface and Local variable syntax for lambda parameters.
+
+Interface : Interest
+package java11;
+interface Interest
+{	
+	int calculate(int p, int rate, int time);
+}
+
+
+Class : SimpleInterest.java
+package java11;
+import java.util.Scanner;
+
+public class SimpleInterest
+{
+
+	public static void main(String[] args)
+	{		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter the Amount: ");
+		int p = sc.nextInt();
+		System.out.println("Enter the Rate:" );
+		int rate = sc.nextInt();
+		System.out.println("Enter the Time: ");
+		int time = sc.nextInt();
+		
+		Interest i = (int a, int b, int c) -> (a*b*c)/100;
+		
+		int res = i.calculate(p, rate, time);
+		System.out.println("Simple Interest: "+res);
+	}
+
+}
+
+
+
+
+OUTPUT:
+
+Enter the Amount: 
+
+200000
+Enter the Rate:
+
+8
+Enter the Time: 
+
+12
+Simple Interest: 192000
+
+
+2.	Java 11 supports var keyword for variable declarations. List the scenarios where var keyword cannot be used for such variable declarations. Give reason in support of your answer for each scenario.
+Scenario 1: var keyword cannot be used as an instance and a global variable
+
+package java11;
+
+public class Demo 
+{  
+	    // instance variable
+	    var x = 50;
+	    public static void main(String[] args)
+	    {
+	        System.out.println(x);
+	    }
+}
+
+OUTPUT:
+Exception in thread "main" java.lang.Error: Unresolved compilation problem: 
+	Cannot make a static reference to the non-static field x
+
+	at org.java.app.Demo.main(Demo.java:9)
+
+
+Scenario 2: var cannot be used as a generic type	
+package java11;
+import java.util.*;
+
+public class Demo1 
+{
+		public static void main(String[] args)
+	    {
+	          // Generic list using var
+	        var<var> al = new ArrayList<>();
+	            
+	          // add elements
+	        al.add(10);
+	        al.add(20);
+	        al.add(30);
+	        
+	        // print the list
+	        System.out.println(al);
+	    }
+	}
+
+
+OUTPUT:
+Cannot prog.java:10:error: ‘var’ is not allowed here
+var<var> v = new ArrayList<>();
+1 error
+Scenario 3: var cannot be used without explicit initialization
+package java11;
+import java.io.*;
+class demo3 {
+	
+	public static void main(String[] args) {
+	
+		 // declaration without
+        // initialization
+        var variable;
+          
+          // This is also not valid
+        var variable = null;
+	}
+
+}
+
+OUTPUT:
+
+ Cannot use 'var' on variable without initializer
+	Duplicate local variable variable
+	Cannot infer type for local variable initialized to 'null'
+
+
+Scenario 4: var cannot be used with lambda expression
+
+package java11;
+interface myInt {
+	int add(int a, int b);
+}
+class demo4 {
+
+	public static void main(String[] args) {
+		var v = (a,b) -> (a + b);
+		System.out.println(v.add(2,3));
+	}
+
+}
+
+OUTPUT: 
+
+Lambda expression needs an explicit target-type
+	Cannot invoke add(int, int) on the primitive type null
+	
+3.	A quick brown fox jumps over the lazy dog”. Create an ArrayList from the given String .Such an ArrayList should include each word from the given sentence. Finally. convert such List to an array using Java 11 methods and print the output.
+
+
+package java11;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class String1 {
+
+	public static void main(String[] args) 
+	{
+		String str = "A quick brown fox jumps over the lazy dog";
+		String words[] = str.split(" ");
+		
+		List<String> l = new ArrayList<String>();
+		for(String text:words) {
+	         l.add(text);
+		}
+		
+		System.out.println(l);
+		
+		//java11 
+		String[] array = l.toArray(String[]::new);
+		System.out.println("In java 11 features : " + Arrays.toString(array));
+		 
+	}
+
+}
+
+
+
+
+OUTPUT:
+[A, quick, brown, fox, jumps, over, the, lazy, dog]
+      In java 11 features: [A, quick, brown, fox, jumps, over, the, lazy, dog]
+
+
+4.	Using features of Java 11, read the data from a text file (File name: StudentList.bt). Calculate the count of students and print the names as well as the total count of students on the screen. (If any line in file doesn't contain a name, for such a record blank space should not be printed in the output)
+Hint: Use java 11 features of files and String methods to reduce the lines of code to be written.	
+
+
+package java11;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+public class File
+{	
+		public static void main(String[] args)
+		{
+			Path filePath = Paths.get("C:/","Users","Renuka","Desktop","StudentList.txt");
+			
+			try
+			{
+				String line;
+				int count =0;
+				
+				String content = Files.readString(filePath);
+				System.out.println(content);
+				
+				
+				String words[] = content.split(" ");
+				count = count + words.length;
+
+				System.out.println("Total Name Count: " + count);
+			}
+			catch (IOException o)
+			{
+				o.printStackTrace();
+			}
+		}
+
+	}
+
+
+OUTPUT:
+
+Renuka Ayesha Mounika Shirisha ,Priyanka,Unnisa
+Total Name Count : 6
+
+6.	Write a code using HttpClient API which sends a GET request to https://httpbin.org/get, and print out the response header, status code, and body for the given URL Sample output could be (Note: date and other attribute values may differ in your case.
+
+
+package java11;
+
+	import java.io.IOException;
+	import java.net.URI;
+	import java.net.http.HttpClient;
+	import java.net.http.HttpRequest;
+	import java.net.http.HttpResponse;
+	import java.net.http.HttpClient.Version;
+	import java.net.http.HttpResponse.BodyHandlers;
+
+	public class URLDemo {
+
+		public static void main(String[] args) {
+			
+			String uri = "https://httpbin.org/get";
+			
+			HttpRequest req = HttpRequest.newBuilder()
+					.uri(URI.create(uri))
+					.GET()
+					.version(Version.HTTP_2)
+					.build();
+			
+			HttpClient client = HttpClient.newBuilder()
+					.build();
+			
+			try
+			{
+				HttpResponse<String> resp = client.send(req, BodyHandlers.ofString());
+				System.out.println(resp.headers());
+				System.out.println(resp.statusCode());
+				System.out.println(resp.body());
+			}
+			catch(IOException | InterruptedException e)
+			{
+				e.printStackTrace();
+			}
+
+		}
+
+	}
+
+OUTPUT:
+java.net.http.HttpHeaders@ae0d7a0b { {:status=[200], access-control-allow-credentials=[true], access-control-allow-origin=[*], content-length=[245], content-type=[application/json], date=[Thu, 20 Jan 2022 14:57:38 GMT], server=[gunicorn/19.9.0]} }
+200		
+{
+  "args": {}, 
+  "headers": {
+    "Host": "httpbin.org", 
+    "User-Agent": "Java-http-client/17.0.1", 
+    "X-Amzn-Trace-Id": "Root=1-61e98f65-1bb67bb8330e2bb7256a7970"
+  }, 
+  "origin": "43.252.205.45", 
+  "url": "https://httpbin.org/get"
+}
+
+
+
+
+				
+
