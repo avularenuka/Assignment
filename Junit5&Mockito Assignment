@@ -1,0 +1,175 @@
+3.bank account class with method withdraw which accepts amount to be withdraw from the accouont in case there are insufficient exception
+
+public class Account {
+    private int acctNo;
+    private String owner;
+    private int balance;
+
+    public Account() {
+        acctNo = 0;
+        owner = "";
+        balance = 0;
+    }
+
+    public Account(int no, String own, int bal) {
+        this.acctNo = no;
+        this.owner = own;
+        this.balance = bal;
+    }
+
+    public int getAcctNo() {
+        return acctNo;
+    }
+
+    public void setAcctNo(int no) {
+        this.acctNo = no;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String own) {
+        this.owner = own;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int bal) {
+        this.balance = bal;
+    }
+
+    public void withdraw(int amt) throws InsufficientFundsException {
+        if(amt <= balance) {
+            balance -= amt;
+        }
+        else {
+            int newBalance = amt - balance;
+            throw new InsufficientFundsException(newBalance);
+        }
+
+    }
+
+    public void deposit(int amt) {
+        this.balance += amt;
+    }
+
+    public static void main (String args[]) {
+        Account ac = new Account(1234, "david", 15000);
+        try {
+            ac.withdraw(1500);
+        }catch(InsufficientFundsException e)
+        {
+            System.out.println("Account number: " +ac.getAcctNo());
+            System.out.println("owner: " +ac.getOwner());
+            System.out.println("Balance is :" +ac.getBalance() );
+        }
+    }
+}
+
+
+
+4.write a junit to show the use of lifecycle hooks annotations such as @BeforeAll,@BeforeEach,@AfterEach,@AfterAll
+
+public class AccountTest {
+
+    public AccountTest() {
+    }
+
+    @BeforeClass
+    public static void setUpClass() {
+    }
+
+    @AfterClass
+    public static void tearDownClass() {
+    }
+
+    @Test
+    public void testAcctNo() throws InsufficientFundsException {
+        Account instance = new Account();
+        int id = 0;
+        int number = instance.getAcctNo();
+        assertEquals(id, number);       
+    }
+
+    @Test
+    public void testBalance() throws InsufficientFundsException {
+        Account instance = new Account();
+        int expResult = 0;
+        int result = instance.getBalance();
+        assertEquals(expResult, result);
+
+    }
+
+    @Test(expected=InsufficientFundsException.class)
+    public void testWithdraw() throws InsufficientFundsException {
+        int amount = 0;
+        Account instance = new Account ();
+        instance.withdraw(amount);
+        int balance = instance.getBalance();
+        assertEquals(-amount, balance);
+    }
+
+    @Test
+    public void testDeposit() throws InsufficientFundsException {
+        int amount = 0;
+        Account instance = new Account ();
+        instance.deposit(amount);
+        int balance = instance.getBalance();
+        assertEquals(amount, balance);
+    }
+}
+
+public class AppTest {
+
+	@BeforeAll
+	static void setup(){
+		System.out.println("@BeforeAll executed");
+	}
+
+	@BeforeEach
+	void setupThis(){
+		System.out.println("@BeforeEach executed");
+	}
+
+	@Test
+    void testCalcOne()
+	{
+		System.out.println("======TEST ONE EXECUTED=======");
+		Assertions.assertEquals( 4 , Calculator.add(2, 2));
+    }
+
+    @Test
+    void testCalcTwo()
+   {
+		System.out.println("======TEST TWO EXECUTED=======");
+		Assertions.assertEquals( 6 , Calculator.add(2, 4));
+    }
+
+	@AfterEach
+	void tearThis(){
+		System.out.println("@AfterEach executed");
+	}
+
+	@AfterAll
+	static void tear(){
+		System.out.println("@AfterAll executed");
+	}
+}
+
+Test Output:
+
+
+@BeforeAll executed
+
+@BeforeEach executed
+======TEST ONE EXECUTED=======
+@AfterEach executed
+
+@BeforeEach executed
+======TEST TWO EXECUTED=======
+@AfterEach executed
+
+@AfterAll executed
