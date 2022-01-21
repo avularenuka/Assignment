@@ -7,7 +7,7 @@
 Interface: Arithmetic
 
 
-package org.lambda.app;
+package lambda;
 
 public interface Arithmetic
 {
@@ -17,7 +17,7 @@ public interface Arithmetic
 
 Class : ArithemticOperation
 
-package org.lambda.app;
+package lambda;
 
 public class AirthmeticOperations
 {
@@ -62,7 +62,7 @@ Division = 2
 2.	Write an application using lambda expressions to print Orders having 2 criteria implemented 1.Order price more than 10000
 2.Order  status is ACCEPTED or COMPLETED
 Interface: Price
-package org.lambda.app;
+package lambda;
 public interface Price
 {
 		public String price();
@@ -105,7 +105,7 @@ Accepted!
            Methods  from java API.
 
 Class : Product.java
-package org.lambda.app;
+package lambda;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -127,7 +127,7 @@ System.out.println("This is Consumer functional interface: "+price);
 
 	
 Class : ProductMainmethod.java
-package org.lambda.app;
+package lambda;
 
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -172,7 +172,7 @@ This is supplier functional interface: 0.6368305434925969
 
 4.Remove the words that have odd lengths from the list. HINT : Use one of the new methods from JDK 8. Use remove() method from Collection interface.
 
-package org.lambda.app;
+package lambda;
 import java.util.*;
 public class Remove 
 {
@@ -199,7 +199,7 @@ Srija
 
 5. Create a string that consists of the first letter of each word in the list of Strings provide. HINT : Use Consumer interface and a StringBulider to construct the results.
 
-package org.lambda.app;
+package lambda;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -232,7 +232,7 @@ G
 
 6. Replace every word in the list with its upper case equivalent. Use replaceAll() method and UnaryOperator interface.
 Class : UpperCaseConverstion.java
-package org.lambda.app;
+package lamda;
 import java.util.ArrayList;
 import java.util.function.UnaryOperator;
 
@@ -245,7 +245,7 @@ class UpperCaseConverstion implements UnaryOperator<String> {
 
 Class : UppercaseMainMethod.java
 
-package org.lambda.app;
+package lambda;
 
 import java.util.ArrayList;
 
@@ -264,8 +264,7 @@ public class  UppercaseMainMethod {
 }
 
 
-OUTPUT:
-Contents of the list: [Java, Spring, c language, python, junit]
+OUTPU
 Contents of the list after replace operation:[GITHUB,MONGODB,JAVA, PYTHON, TESTING]
 
 	
@@ -293,7 +292,7 @@ public class MapToString {
 
 OUTPUT:
 
-Manisha "1" Raji "3" Pushpa "5" Mounika "2" Hari "6"
+
 Renuka "1" Srilekha "5" Karuna "3" Manasa "4" Mounika "2"
 
 8. Create a new thread that prints the numbers from the list. Use class Thread & interface Consumer.
