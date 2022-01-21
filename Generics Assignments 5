@@ -1,142 +1,219 @@
-1. package emp;
-      public class employee {
-	int id,salary;
-	String name,department;
+                                            Generics Assignment-5
 	
-	public employee(int id,int salary,String name,String department)
-	{
-		this.id=id;
-		this.salary=salary;
-		this.name=name;
-		this.department=department;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public int getSalary() {
-		return salary;
-	}
-
-	public void setSalary(int salary) {
-		this.salary = salary;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(String department) {
-		this.department = department;
-	}
-       public void displayDetails()
-       {
-	System.out.println("id : "+getId()+" salary: "+getSalary()+" name:        
-       "+getName()+" department: "+getDepartment());
-       }
-       } 
-       public class hashset {
-      	public static void main(String[] args)
-	{	
-		Set<employee> set=new HashSet<>();
-		employee emp=new employee(1, 21000 , "Renuka", "Analyst");
-		set.add(emp);
-             	emp.displayDetails();
-       }}
-       
-       Output:
-       id:salary :21000 name:Renuka department:Analyst
-       
-	2. import java.util.HashMap;
-
-         public class map {
-         public static void main(String[] args)
-         {
-	   //Map<key,value> map=new HashMap<>();
-	     Map<Integer,Double> map=new HashMap<>();
-			map.put(34, 33.9);
-			map.put(67, 67.7);
-			map.put(96, 56.7);
-			map.put(35, 3.5);
-			map.put(11, 33.9);
-			map.put(25, 5.9);
-			map.put(99, 89.8);
-			map.put(56, 23.5);
-			map.put(84, 98.5);
-			map.put(54, 87.6);
-		
+1.	Use Hashset to hold Employee Objects. Upon running the application, the details of the employees  added to the Hashset should be displayed.
+Employee <<class>>
+	|-id
+	|-name
+   	|-salary
+	|-department
+	|-displayDetails(optional)
+Feel free to add properties and methods to Employee Class.
+Note: If we try to store any object other than Employee Object in Hashset, we should not be
+	Allowed to.
+	
+Class1: Employee
+package org.generics.app;
+public class employee
+{
+		int Id,salary;
+		String name,department;
 			
-	        System.out.println(map);
-	     
-         }}
-	 
-       Output:
-       {96=56.7, 34=33.9, 67=67.7, 35=3.5, 99=89.8, 84=98.5, 54=87.6, 56=23.5, 25=5.9, 11=33.9}
-       
-  3
-  import java.util.Scanner;
-  public class ArrayTricks{
-  public static void main(String args[])
-  {
-  int[] numbers={4,1,8,3,5};
-  int src=0;
-  int dest=1;
-  int temp=numbers[src];
-  numbers[0]=numbers[1];
-  numbers[1]=temp;
-  for(int i=0;i<numbers[i]+"");
-  }
-  }
-  
-  outppput:
-  1 4 8 3 5
-  
+		public emplyee(int Id,int salary,String name,String department)
+		{
+			this.Id=Id;
+			this.salary=salary;
+			this.name=name;
+			this.department=department;
+		}
 
+		public int getId() 
+		{
+			return Id;
+		}
 
-4. a. import java.util.*;
+		public void setId(int Id)
+		{
+			this.Id = Id;
+		}
 
-	public class pair {
-	public static void main(String[] args)
+		public int getSalary() 
+		{
+			return salary;
+		}
+
+		public void setSalary(int salary) {
+			this.salary = salary;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public String getDepartment() {
+			return department;
+		}
+
+		public void setDepartment(String department) {
+			this.department = department;
+		}
+	public void displayDetails()
 	{
-		Map<String,String> map=new HashMap<>();
-		
-             map.put("Hi", "8");
-		map.put("hello", "9");
-             System.out.println(map);
-		 
-		        
+		System.out.println("Id :"+getId()+" \nSalary: "+getSalary()+"\nName: "
+	+getName()+"\nDepartment: "+getDepartment());
 	}
 	}
+
+Class2: Hashset
+
+
+package org.generics.app;
+import java.util.*;
+public class Hashset {
+
+	public static void main(String[] args) 
+	{
+		HashSet<emplyee> set=new HashSet<>();
+		emplyee emp=new emplyee(1, 21000 , "Renuka Avula", "Analyst");
+		set.add(emp);
+	   emp.displayDetails();
+
+	}
+
+}
+
+
+OUTPUT:
+
+Id : 1
+Salary: 21000
+Name: Renuka Avula
+Department: Analyst
+
+
+
+
+
+
+2.	Write an application to hold 10 random int values are keys and 10 random double values as values for a Hashmap. Print the data store in the Hashmap. Note : Keys can only be int and values double.
+
+
+package org.generics.app;
+import java.util.HashMap;
+public class Map 
+{
+	public static void main(String[] args) 
+	{
+						HashMap<Integer,Double> map=new HashMap<>();
+						map.put(43, 37.9);
+						map.put(57, 84.7);
+						map.put(69, 65.7);
+						map.put(53, 5.3);
+						map.put(12, 33.8);
+						map.put(23, 5.9);
+						map.put(95, 89.8);
+						map.put(66, 24.5);
+						map.put(48, 97.5);
+						map.put(52, 87.6);
+						System.out.println(" Size of the values is :" + map.size());
+				        System.out.println(map);
+
+
+	}
+
+}
+
+OUTPUT:
+Size of the values is : 10
+{48=97.5, 66=24.5, 52=87.6, 69=65.7, 53=5.3, 23=5.9, 57=84.7, 43=37.9, 12=33.8, 95=89.8}
+
+3.	Write a generic method to exchange the postions of two different elements in an array.
+
+package org.generics.app;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+
+public class Test {
+public static final <T> void swap (T[] a, int i, int j) {
+T t = a[i];
+a[i] = a[j];
+a[j] = t;
+}
+
+public static final <T> void swap (List<T> b, int i, int j) {
+Collections.<T>swap(b, i, j);
+}
+
+private static void swap1() {
+Integer [] a = {15, 40};
+swap(a, 0, 1);
+System.out.println("a:"+Arrays.toString(a));
+List<Integer> b = new ArrayList<Integer>(Arrays.asList(a));
+swap(b, 0, 1);
+System.out.println("b:"+b);
+}
+public static void main(String...args)
+{
+swap1();
+}}
+OUTPUT:
+a:[40, 15]
+b:[15, 40]
+
+
+
+
+4.	Design a class named Pair which has two properties. The name of the first property is key and that of the second property is value. When desiging the class take case of the following scenarios:
 	
-	Output:
-	{Hi=8, hello=9}
+a.	Create an Object of pair class to store String value for the properties and String value for the property value. Restriction Apart from  String type no other types should be acceptable as Key or value input.
+e.g.
+    myObj.setKey(“1”);
+    myObj.setValue(“Hello”);
+
+                    package org.generics.app;
+                    import java.util.HashMap;
+                    public class Pair1
+                    {
+	                  public static void main(String[] args)
+	                  {
+		               HashMap<String,String> map=new HashMap<>();	
+	                      map.put(" i am Renuka", "9");
+		               map.put("hello", "5");
+	                     System.out.println(map);
+                         }
+
+                   }
+
+OUTPUT:
+
+{I am Renuka=9, hello=5}
 
 
+b.	Create an object of the class pair to store String value for the property key and java.util.Date  as value for the property value
+                  		myObj.setKey(“Today is”);
+			myObj.setValues(new java.util.Date());
+Note:  In scenario a, no data apart from String should be used for key value, in scenario  b, no data apart from String for key and java.util.Date should be allowed.
+                     package org.generics.app;
+                     import java.util.*;
+                     public class Pair2 
+                     {
+	                  public static void main(String[] args)
+	                  {
+		                HashMap<String,Date> map=new HashMap<>();
+		                map.put("Today is", new java.util.Date());
+		                System.out.println(map)
+                         }
 
-b. 	import java.util.*;
+                      }
 
-	public class pair1 {
-	public static void main(String[] args)
-	{    
-		Map<String,Date> map=new HashMap<>();
-		map.put("Today is", new java.util.Date());
-		System.out.println(map);
-				
-}}	
 
-Output:
-{Today is=Sun Jan 16 20:11:00 IST 2022}
+OUTPUT:
+{Today is=Sun Jan 16 21:00:49 IST 2022}
+
 
