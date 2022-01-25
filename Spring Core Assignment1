@@ -1,0 +1,632 @@
+Assignment
+
+
+1.	For Setter Injection Main Class SpringQuestion1Test
+package Spring_Core;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class SpringQuestion1
+{
+	@SuppressWarnings("unused")
+	private static ApplicationContext context;
+
+	public static void main(String[] args)
+	{
+			@SuppressWarnings("resource")
+			ApplicationContext context = new ClassPathXmlApplicationContext("file:src/main/resources/Addressbean.xml");
+			
+			Customer customer = (Customer)context.getBean("Customer");
+			System.out.println(customer);
+			
+	}
+	
+}
+
+Address.java
+package Spring_Core;
+
+public class Address
+{
+	private String city, street, state, country;
+	private int zip;
+	
+	public String getCity()
+	{
+		return city;
+	}
+	
+	public void setCity(String city)
+	{
+		this.city = city;
+	}
+	
+	public String getStreet()
+	{
+		return street;
+	}
+	
+	public void setStreet(String street)
+	{
+		this.street = street;
+	}
+	
+	public String getState()
+	{
+		return state;
+	}
+	
+	public void setState(String state)
+	{
+		this.state = state;
+	}
+	
+	public String getCountry()
+	{
+		return country;
+	}
+	
+	public void setCountry(String country)
+	{
+		this.country = country;
+	}
+	
+	public int getZip()
+	{
+		return zip;
+	}
+	
+	public void setZip(int zip)
+	{
+		this.zip = zip;
+	}
+	
+}
+
+AddressBean.xml
+<beans xmlns = "http://www.springframework.org/schema/beans"
+		xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+		
+		<bean id = "Address" class = "Spring_Core.Address">
+		<property name = "zip" value = "221"/>
+		<property name = "city" value = "London"/>
+		<property name = "street" value = "Baker Street"/>
+		<property name = "state" value = "World"/>
+		<property name = "country" value = "England"/>
+		
+		</bean>
+		
+		<bean id = "Customer" class = "Spring_Core.Customer">
+		<property name = "customerId" value = "123"/>
+		<property name = "customercontact" value = "123456"/>
+		<property name = "customerAddress" ref = "Address"/>
+		<property name = "customerName" value = "Sherlock Holmes"/>
+		</bean>
+	
+		</beans>
+
+Customer.java
+package Spring_Core;
+
+public class Customer
+{
+	private int customerId;
+	private int customercontact;
+	private String customerName;
+	private Address customerAddress;
+
+	public int getCustomerId()
+	{
+		return customerId;
+	}
+	
+	public void setCustomerId(int customerId)
+	{
+		this.customerId = customerId;
+	}
+	
+	public int getCustomercontact()
+	{
+		return customercontact;
+	}
+	
+	public void setCustomercontact(int customercontact)
+	{
+		this.customercontact = customercontact;
+	}
+	
+	public Address getCustomerAddress()
+	{
+		return customerAddress;
+	}
+	
+	public void setCustomerAddress(Address customerAddress)
+	{
+		this.customerAddress = customerAddress;
+	}
+	
+	public String getCustomerName()
+	{
+		return customerName;
+	}
+	
+	public void setCustomerName(String customerName)
+	{
+		this.customerName = customerName;
+	}
+
+	public String toString()
+	{
+		return "Customer Id: "+getCustomerId()+ ", Customer Contact: "+getCustomercontact()+ ", Customer Address: {City: "+getCustomerAddress().getCity()+", Street: "+getCustomerAddress().getStreet()+", State: "+getCustomerAddress().getState()+", Country: "+getCustomerAddress().getCountry()+", Zip: "+getCustomerAddress().getZip()+"}, Customer Name: "+getCustomerName();
+	}
+	
+}
+
+For Constructor Main Class SpringQuestion1Test
+package Spring_Core;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class SpringQuestion1
+{
+	@SuppressWarnings("unused")
+	private static ApplicationContext context;
+
+	public static void main(String[] args)
+	{			
+			@SuppressWarnings("resource")
+			ApplicationContext context1 = new ClassPathXmlApplicationContext("file:src/main/resources/Customer.xml");
+			
+			Customer customer2 = (Customer)context1.getBean("Customer1");
+			System.out.println(customer2);
+			
+	}
+	
+}
+
+For Constructor Address.java
+package Spring_Core;
+
+public class Address
+{
+	private String city, street, state, country;
+	private int zip;
+	
+	public String getCity()
+	{
+		return city;
+	}
+	
+	public void setCity(String city)
+	{
+		this.city = city;
+	}
+	
+	public String getStreet()
+	{
+		return street;
+	}
+	
+	public void setStreet(String street)
+	{
+		this.street = street;
+	}
+	
+	public String getState()
+	{
+		return state;
+	}
+	
+	public void setState(String state)
+	{
+		this.state = state;
+	}
+	
+	public String getCountry()
+	{
+		return country;
+	}
+	
+	public void setCountry(String country)
+	{
+		this.country = country;
+	}
+	
+	public int getZip()
+	{
+		return zip;
+	}
+	
+	public void setZip(int zip)
+	{
+		this.zip = zip;
+	}
+
+	public Address(String city, String street, String state, String country, int zip) {
+		super();
+		this.city = city;
+		this.street = street;
+		this.state = state;
+		this.country = country;
+		this.zip = zip;
+	}
+	
+}
+
+
+For Constructor Customer.java
+
+package Spring_Core;
+
+public class Customer
+{
+	private int customerId;
+	private int customercontact;
+	private String customerName;
+	private Address customerAddress;
+	
+	public Customer(int customerId, int customercontact, String customerName, Address customerAddress)
+	{
+		
+		this.customerId = customerId;
+		this.customercontact = customercontact;
+		this.customerName = customerName;
+		this.customerAddress = customerAddress;
+	}
+
+	public int getCustomerId()
+	{
+		return customerId;
+	}
+	
+	public void setCustomerId(int customerId)
+	{
+		this.customerId = customerId;
+	}
+	
+	public int getCustomercontact()
+	{
+		return customercontact;
+	}
+	
+	public void setCustomercontact(int customercontact)
+	{
+		this.customercontact = customercontact;
+	}
+	
+	public Address getCustomerAddress()
+	{
+		return customerAddress;
+	}
+	
+	public void setCustomerAddress(Address customerAddress)
+	{
+		this.customerAddress = customerAddress;
+	}
+	
+	public String getCustomerName()
+	{
+		return customerName;
+	}
+	
+	public void setCustomerName(String customerName)
+	{
+		this.customerName = customerName;
+	}
+
+	public String toString()
+	{
+		return "Customer Id: "+getCustomerId()+ ", Customer Contact: "+getCustomercontact()+ ", Customer Address: {City: "+getCustomerAddress().getCity()+", Street: "+getCustomerAddress().getStreet()+", State: "+getCustomerAddress().getState()+", Country: "+getCustomerAddress().getCountry()+", Zip: "+getCustomerAddress().getZip()+"}, Customer Name: "+getCustomerName();
+	}
+	
+}
+
+
+For Constructor Customer.xml
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+		xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+		
+		<bean id = "Address" class = "Spring_Core.Address">
+		
+		<constructor-arg index = "0" name = "city" type = "java.lang.String" value = "London"/>
+		<constructor-arg index = "1" name = "street" type = "java.lang.String" value = "Baker Street"/>
+		<constructor-arg index = "2" name = "state" type = "java.lang.String" value = "World"/>
+		<constructor-arg index = "3" name = "country" type = "java.lang.String" value = "England"/>
+		<constructor-arg index = "4" name = "zip" type = "int" value = "221"/>
+		
+		</bean>
+		
+		<bean id = "Customer1" class = "Spring_Core.Customer">
+		<constructor-arg index = "0" name = "customerId" type = "int" value = "123"/>
+		<constructor-arg index = "1" name = "customercontact" type = "int" value = "123456"/>
+		<constructor-arg index = "2" name = "customerName" type = "java.lang.String" value = "Sherlock Holmes"/>
+		<constructor-arg index = "3" name = "customerAddress" ref = "Address"/>		
+		</bean>
+		</beans>
+		
+
+
+Main Class Question2.java
+
+package Spring_Core;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+
+import org.junit.jupiter.api.Test;
+
+class Question2
+{
+
+	@SuppressWarnings("unused")
+	private static ApplicationContext context;
+
+	public static void main(String[] args)
+	{
+		 @SuppressWarnings("resource")
+		ApplicationContext context = new ClassPathXmlApplicationContext("Coll.xml");
+         
+         List list = (List) context.getBean("Collections");
+          
+         System.out.println("List: " + list.getList());
+         
+	}
+
+}
+
+Question2.java
+
+package Spring_Core;
+
+public class Question
+{
+	private int questionId;
+	private String question, answers;
+	public void setQuestionId(int questionId) {
+		this.questionId = questionId;
+	}
+	public void setQuestion(String question) {
+		this.question = question;
+	}
+	public void setAnswers(String answers) {
+		this.answers = answers;
+	}
+	
+	public String toString()
+	{
+		return "Question ID: "+questionId+ ", Questions: "+question+ ", Answers: "+answers+"\n";
+	}
+	
+}
+
+List.java
+
+package Spring_Core;
+
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Set;
+
+public class List
+{
+	private ArrayList<Object> list;
+	 
+    private Set<Object> set;
+     
+    private Map<Object, Object> map;
+
+	public ArrayList<Object> getList() {
+		return list;
+	}
+
+	public void setList(ArrayList<Object> list) {
+		this.list = list;
+	}
+
+	public Set<Object> getSet() {
+		return set;
+	}
+
+	public void setSet(Set<Object> set) {
+		this.set = set;
+	}
+
+	public Map<Object, Object> getMap() {
+		return map;
+	}
+
+	public void setMap(Map<Object, Object> map) {
+		this.map = map;
+	}
+}
+
+
+Coll.xml
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:task="http://www.springframework.org/schema/task" xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd">
+ 
+    <bean id="Collections" class="Spring_Core.List">
+        <property name="list">
+            <list>
+                <ref bean="answers" />
+                <ref bean="answers1" />
+                <ref bean="answers2" />
+            </list>
+        </property>
+    </bean>
+     
+    <bean id="answers" class="Spring_Core.Question">
+        <property name="answers" value=”Teja"/>
+        <property name = "question" value = "What's your name?"/>
+        <property name = "questionId" value = "123"/>
+	</bean>
+	
+	<bean id="answers1" class="Spring_Core.Question">
+		<property name="answers" value="Ritu"/>
+        <property name = "question" value = "What's your name?"/>
+        <property name = "questionId" value = "456"/>
+	</bean>
+	
+	<bean id="answers2" class="Spring_Core.Question">
+	<property name="answers" value="Manu"/>
+        <property name = "question" value = "What's your name?"/>
+        <property name = "questionId" value = "789"/>
+	</bean>
+        
+    </beans>
+
+
+Main Class Question2.java
+
+package Spring_Core;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+
+import org.junit.jupiter.api.Test;
+
+class Question2
+{
+
+	@SuppressWarnings("unused")
+	private static ApplicationContext context;
+
+	public static void main(String[] args)
+	{
+		 @SuppressWarnings("resource")
+		ApplicationContext context = new ClassPathXmlApplicationContext("Coll.xml");
+         
+         List set = (List) context.getBean("Collections");
+          
+         System.out.println("Set : " + set.getSet());
+         
+	}
+
+}
+
+
+Coll.xml
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:task="http://www.springframework.org/schema/task" xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd">
+ 
+    <bean id="Collections" class="Spring_Core.List">
+        <property name="set">
+            <set>
+                <ref bean="answers" />
+                <ref bean="answers1" />
+                <ref bean="answers2" />
+            </set>
+        </property>
+    </bean>
+     
+    <bean id="answers" class="Spring_Core.Question">
+        <property name="answers" value="Teja"/>
+        <property name = "question" value = "What's your name?"/>
+        <property name = "questionId" value = "123"/>
+	</bean>
+	
+	<bean id="answers1" class="Spring_Core.Question">
+		<property name="answers" value="Ritu"/>
+        <property name = "question" value = "What's your name?"/>
+        <property name = "questionId" value = "456"/>
+	</bean>
+	
+	<bean id="answers2" class="Spring_Core.Question">
+	<property name="answers" value="Manu"/>
+        <property name = "question" value = "What's your name?"/>
+        <property name = "questionId" value = "789"/>
+	</bean>
+        
+    </beans>
+
+
+Main Class Question2.java
+
+package Spring_Core;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+
+import org.junit.jupiter.api.Test;
+
+class Question2
+{
+
+	@SuppressWarnings("unused")
+	private static ApplicationContext context;
+
+	public static void main(String[] args)
+	{
+		 @SuppressWarnings("resource")
+		ApplicationContext context = new ClassPathXmlApplicationContext("Coll.xml");
+         
+         List map = (List) context.getBean("Collections");
+          
+         System.out.println("Map : " + map.getMap());
+         
+	}
+
+}
+
+
+Coll.xml
+
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:task="http://www.springframework.org/schema/task" xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd">
+ 
+    <bean id="Collections" class="Spring_Core.List">
+        <property name="map">
+            <map>
+				<entry key="1" value-ref="answers" />
+				<entry key="2" value-ref="answers1" />
+                <entry key="3" value-ref="answers2" />
+            </map>
+        </property>
+    </bean>
+     
+    <bean id="answers" class="Spring_Core.Question">
+        <property name="answers" value="Teja"/>
+        <property name = "question" value = "What's your name?"/>
+        <property name = "questionId" value = "123"/>
+	</bean>
+	
+	<bean id="answers1" class="Spring_Core.Question">
+		<property name="answers" value="Ritu"/>
+        <property name = "question" value = "What's your name?"/>
+        <property name = "questionId" value = "456"/>
+	</bean>
+	
+	<bean id="answers2" class="Spring_Core.Question">
+	<property name="answers" value="Manu"/>
+        <property name = "question" value = "What's your name?"/>
+        <property name = "questionId" value = "789"/>
+	</bean>
+        
+    </beans>
+
