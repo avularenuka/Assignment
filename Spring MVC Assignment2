@@ -1,0 +1,308 @@
+1.package com.Mvc
+import org.springframework.stereotype.Controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+@Controller
+
+public class HelloController{
+@RequestMapping('/welcome")
+public ModelAndView helloworld(){
+ModelAndView = new ModelAndView("HelloPage");
+
+return modelandview;
+}
+}
+
+ <?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:context = "http://www.springframework.org/schema/context"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context.xsd">
+   
+  <context:component-scan base-package="com.Mvc"/>
+
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name = "prefix">
+			<value>/WEB-INF/</value>
+		</property>
+	      <property name = "suffix">
+	      	<value>.jsp</value>
+	      </property>
+	</bean> </beans>
+
+
+
+<html>
+<body>
+<h1>Hello World</h1>
+<h2>${message}</h2>
+</body>
+</html>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://Java.sun.com/xml/ns/javaee"
+ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+ id="WebApp_ID" version="3.0">
+  <display-name>FirstSpringMVCProject</display-name>
+  
+  <servlet>
+	<servlet-name>spring-dispatcher</servlet-name>
+	<servlet-class>org.springframework.web.servlet.DispatcherServlet
+	</servlet-class>
+	<load-on-startup>1</load-on-startup>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>spring-dispatcher</servlet-name>
+	<url-pattern>/</url-pattern>
+</servlet-mapping>
+
+</web-app>
+
+
+2.
+package com.Mvc;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+@Controller
+public class SimpleInterestController {
+
+	@RequestMapping(value="/getvalues.html",method=RequestMethod.GET)
+	public ModelAndView getForm()
+	{
+		ModelAndView model=new ModelAndView("Values");
+		return model;
+	}
+	
+	@RequestMapping(value="/submitvalues.html",method=RequestMethod.POST)
+	public ModelAndView acceptForm(@RequestParam("amount") Double amount,
+			@RequestParam("rate") Double rate,@RequestParam("time") Double time)
+	{
+		ModelAndView model=new ModelAndView("Calculate");
+		model.addObject("message",
+	"SimpleInterest:"+"("+amount+""+rate+""+time+")/100="+(amount*rate*time)/100);
+			
+		return model;
+	}
+}
+
+<html>
+<body>
+<h1>Simple Interest</h1>
+<h2>${message}</h2>
+</body>
+</html>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:context = "http://www.springframework.org/schema/context"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context.xsd">
+   
+  <context:component-scan base-package="com.Mvc"/>
+
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name = "prefix">
+			<value>/WEB-INF/</value>
+		</property>
+	      <property name = "suffix">
+	      	<value>.jsp</value>
+	      </property>
+	</bean> </beans>
+
+<html>
+<body>
+<h1>calculation of simple interest</h1>
+<form action="/MVCMAVEN/submitvalues.html" method="post">
+
+  <p>Amount:<input type="number" name="amount"/></p>
+  <p> Rate:<input type="number" name="rate"/></p>
+  <p> Years:<input type="number" name="time"/></p>
+  
+  <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://Java.sun.com/xml/ns/javaee"
+ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+ id="WebApp_ID" version="3.0">
+  <display-name>FirstSpringMVCProject</display-name>
+  
+  <servlet>
+	<servlet-name>spring-dispatcher</servlet-name>
+	<servlet-class>org.springframework.web.servlet.DispatcherServlet
+	</servlet-class>
+	<load-on-startup>1</load-on-startup>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>spring-dispatcher</servlet-name>
+	<url-pattern>/</url-pattern>
+</servlet-mapping>
+
+</web-app>
+
+
+3.
+package com.spring;
+
+public class LoginBean {
+	private String userName;
+	  private String password;
+
+	  public String getUserName() {
+	    return userName;
+	  }
+
+	  public void setUserName(String userName) {
+	    this.userName = userName;
+	  }
+
+	  public String getPassword() {
+	    return password;
+	  }
+
+	  public void setPassword(String password) {
+	    this.password = password;
+	  }
+
+	}
+
+package com.spring;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@Controller
+	public class LoginController {
+	  @RequestMapping(value = "/login", method = RequestMethod.GET)
+	  public String init(Model model) {
+	    model.addAttribute("msg", "Please Enter Your Login Details");
+	    return "Login";
+	  }
+
+	  @RequestMapping(method = RequestMethod.POST)
+	  public String submit(Model model, @ModelAttribute("loginBean") LoginBean loginBean) {
+	    if (loginBean != null && loginBean.getUserName() != null & loginBean.getPassword() != null) {
+	      if (loginBean.getUserName().equals("Unnisa") && loginBean.getPassword().equals("Unnisa123")) {
+	        model.addAttribute("msg", loginBean.getUserName());
+	        return "success";
+	      } else {
+	        model.addAttribute("error", "Invalid Details");
+	        return "Login";
+	      }
+	    } else {
+	      model.addAttribute("error", "Please enter Details");
+	      return "Login";
+	    }
+	  }
+
+}
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>error</h1>
+<h2>${message}</h2>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1>success</h1>
+<h2>${message}</h2>
+</body>
+</html>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%> <%@taglib
+uri="http://www.springframework.org/tags/form" prefix="form"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Spring Login Form</title>
+</head>
+<body>
+<form:form name="submitForm" method="POST">
+<div align="center">
+<table>
+<tr>
+<td>User Name</td>
+<td><input type="text" name="userName" /></td>
+</tr>
+<tr>
+<td>Password</td>
+<td><input type="password" name="password" /></td>
+</tr>
+<tr>
+<td></td>
+<td><input type="submit" value="Submit" /></td>
+</tr>
+</table>
+<div style="color: red">${error}</div>
+
+</div>
+</form:form>
+</body>
+</html>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:context = "http://www.springframework.org/schema/context"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context.xsd">
+   
+  <context:component-scan base-package="com.spring"/>
+
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name = "prefix">
+			<value>/WEB-INF/</value>
+		</property>
+	      <property name = "suffix">
+	      	<value>.jsp</value>
+	      </property>
+	</bean> </beans>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://Java.sun.com/xml/ns/javaee"
+ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
+ id="WebApp_ID" version="3.0">
+  <display-name>spring-2</display-name>
+  
+  <servlet>
+	<servlet-name>spring-dispatcher</servlet-name>
+	<servlet-class>org.springframework.web.servlet.DispatcherServlet
+	</servlet-class>
+	
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>spring-dispatcher</servlet-name>
+	<url-pattern>/</url-pattern>
+</servlet-mapping>
+
+</web-app>
